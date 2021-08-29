@@ -1,7 +1,5 @@
 package p1;
 
-import java.util.HashMap;
-
 
 class Personne {
 	
