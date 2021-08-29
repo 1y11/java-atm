@@ -2,13 +2,16 @@ package p1;
 
 import java.util.*;
 import p1.Personne;
+import p1.Account;
 
-public class ATM {
+public class ATM  {
 
 	public static void main(String [] args) {
 		int code ; 
 		int id ;
-		int balance = 50000000, withdraw, deposit;
+		 int balance;
+		 int withdraw;
+		 int deposit;
 		Scanner sc= new Scanner(System.in);
 		
 		 
@@ -34,47 +37,23 @@ public class ATM {
 			    switch(choice)  
 			    {  
 			        case 1:  
-			System.out.print("Enter money to be withdrawn:");  
-			              
-			//withdraw  
-			withdraw = sc.nextInt();  
-			              
-			//verification de la possibilité du withdraw  
-			if(balance >= withdraw)  
-			{  
-			    //retrait -  
-			    balance = balance - withdraw;  
-			    System.out.println("Please collect your money");  
-			}  
-			else  
-			{  
-			    //message d'erreur  
-			    System.out.println("Insufficient Balance");
-			    
-			}break; 
+			         withdraw = Account.withdrawl();
+			         break; 
 			  
 
 			        case 2:  
 			              
-			System.out.print("Enter money to be deposited:");  
-			              
-			//depot 
-			deposit = sc.nextInt();  
-			              
-			//ajout du depot   
-			balance = balance + deposit;  
-			System.out.println("Your Money has been successfully depsited");    
-			break;  
+			        deposit = Account.deposit();
+			        break;  
 
 			        case 3:  
 			//affichage du solde  
-			System.out.println("Balance : " + balance);    
-			  
-
+			         balance = Account.checkBalance();  
+			   
 			        case 4:  
 			//exit  
-			 System.out.println("Thanks for using our ATM Machine ");	 
-			 System.exit(0);  
+			       System.out.println("Thanks for using our ATM Machine ");	 
+			       System.exit(0);  
 			    }
 			    
 			    try {
@@ -84,13 +63,11 @@ public class ATM {
 					e.printStackTrace();
 				}
 			}while(true);
-	     }else {
+	     }else 
 	    	 System.out.println("Invalid User,Exit the program...");
-	    	 
+	    
 	     }
 	 
-				
-		}
       
 	}
 
